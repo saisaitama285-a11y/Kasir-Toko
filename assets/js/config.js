@@ -20,17 +20,20 @@ const firebaseConfig = {
   appId: "1:384536807400:web:6e05e4677423449306865d",
 
 
-  
+  };
 
-firebase.initializeApp(firebaseConfig);
+// Inisialisasi Firebase
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const db = firebase.firestore();
 
-// Helper akses koleksi
+// Helper Global
 const getPublicCol = (col) => db.collection(col);
 
-// Mock User (Sesuaikan dengan sistem auth Anda)
+// Data User Sementara (Pastikan Role 'spv' agar dashboard muncul)
 const currentUser = {
-    name: "Staff Admin",
-    outlet: "Outlet Pusat",
-    role: "spv" // atau 'kasir'
+    name: "User Admin",
+    outlet: "Pusat",
+    role: "spv" 
 };
